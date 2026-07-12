@@ -6,11 +6,13 @@ public class TeleportConfig {
 
     public boolean enabled = true;
 
-    public double x = 0.0;
-    public double y = 0.0;
-    public double z = 0.0;
+    public double targetX = 0.0;
+    public double targetY = 0.0;
+    public double targetZ = 0.0;
 
-    public double tolerance = Constants.DEFAULT_TELEPORT_TOLERANCE;
+    public double xTolerance = Constants.DEFAULT_TELEPORT_TOLERANCE;
+    public double yTolerance = Constants.DEFAULT_TELEPORT_TOLERANCE;
+    public double zTolerance = Constants.DEFAULT_TELEPORT_TOLERANCE;
 
     public String command = "";
 
