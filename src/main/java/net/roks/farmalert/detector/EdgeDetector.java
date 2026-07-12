@@ -8,18 +8,24 @@ public final class EdgeDetector {
 
     /*
      * Temporary hardcoded coordinates.
-     * These will move to the config later.
+     * These will come from the config later.
      */
-    private static final double LEFT_X = -10.5;
-    private static final double RIGHT_X = 10.5;
+    private static final double EDGE_X_MIN = -10.5;
+    private static final double EDGE_X_MAX = 10.5;
+
+    private static final double EDGE_Z_MIN = -10.5;
+    private static final double EDGE_Z_MAX = 10.5;
 
     private static final double TOLERANCE = 0.15;
 
     /*
      * Trigger state
      */
-    private static boolean insideLeftZone = false;
-    private static boolean insideRightZone = false;
+    private static boolean insideXMin = false;
+    private static boolean insideXMax = false;
+
+    private static boolean insideZMin = false;
+    private static boolean insideZMax = false;
 
     private EdgeDetector() {
     }
@@ -28,16 +34,29 @@ public final class EdgeDetector {
 
         Position position = PositionService.getCurrentPosition();
 
-        insideLeftZone = checkZone(
-                position.withinX(LEFT_X, TOLERANCE),
-                insideLeftZone
+        // X Axis
+        insideXMin = checkZone(
+                position.withinX(EDGE_X_MIN, TOLERANCE),
+                insideXMin
         );
 
-        insideRightZone = checkZone(
-                position.withinX(RIGHT_X, TOLERANCE),
-                insideRightZone
+        insideXMax = checkZone(
+                position.withinX(EDGE_X_MAX, TOLERANCE),
+                insideXMax
+        );
+
+        // Z Axis
+        insideZMin = checkZone(
+                position.withinZ(EDGE_Z_MIN, TOLERANCE),
+                insideZMin
+        );
+
+        insideZMax = checkZone(
+                position.withinZ(EDGE_Z_MAX, TOLERANCE),
+                insideZMax
         );
     }
+
 
     private static boolean checkZone(boolean inside, boolean alreadyInside) {
 
