@@ -17,7 +17,7 @@ public final class Constants {
 
     // Default Detection
     public static final double DEFAULT_EDGE_TOLERANCE = 0.15;
-    public static final double DEFAULT_TELEPORT_TOLERANCE = 0.15;
+    public static final double DEFAULT_TELEPORT_TOLERANCE = 0.5;
 
     // Debug
     public static final int DEBUG_DECIMAL_PLACES = 4;
