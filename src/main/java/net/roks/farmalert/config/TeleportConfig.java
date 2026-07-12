@@ -14,6 +14,6 @@ public class TeleportConfig {
     public double yTolerance = Constants.DEFAULT_TELEPORT_TOLERANCE;
     public double zTolerance = Constants.DEFAULT_TELEPORT_TOLERANCE;
 
-    public String command = "";
+    public String command = "garden";
 
 }
