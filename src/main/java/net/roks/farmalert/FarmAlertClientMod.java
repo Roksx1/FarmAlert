@@ -3,6 +3,8 @@ package net.roks.farmalert;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.roks.farmalert.service.PositionService;
+import net.roks.farmalert.detector.EdgeDetector;
+import net.roks.farmalert.detector.TeleportDetector;
 
 import net.roks.farmalert.service.TitleService;
 
@@ -23,15 +25,9 @@ public class FarmAlertClientMod implements ClientModInitializer {
                 return;
             }
 
-            ticks++;
+            EdgeDetector.check();
 
-            if (ticks >= 100) {
-
-                ticks = 0;
-
-                TitleService.showEndOfFarm();
-
-            }
+            TeleportDetector.check();
 
         });
 
