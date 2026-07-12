@@ -1,22 +1,14 @@
 package net.roks.farmalert.detector;
 
+import net.roks.farmalert.config.EdgeConfig;
+import net.roks.farmalert.service.ConfigService;
 import net.roks.farmalert.model.Position;
 import net.roks.farmalert.service.PositionService;
 import net.roks.farmalert.service.TitleService;
 
 public final class EdgeDetector {
 
-    /*
-     * Temporary hardcoded coordinates.
-     * These will come from the config later.
-     */
-    private static final double EDGE_X_MIN = -10.5;
-    private static final double EDGE_X_MAX = 10.5;
 
-    private static final double EDGE_Z_MIN = -10.5;
-    private static final double EDGE_Z_MAX = 10.5;
-
-    private static final double TOLERANCE = 0.15;
 
     /*
      * Trigger state
@@ -33,28 +25,45 @@ public final class EdgeDetector {
     public static void check() {
 
         Position position = PositionService.getCurrentPosition();
+        EdgeConfig config = ConfigService.getConfig().edge;
 
         // X Axis
-        insideXMin = checkZone(
-                position.withinX(EDGE_X_MIN, TOLERANCE),
-                insideXMin
-        );
+        if (config.xEnabled) {
+            insideXMin = checkZone(
+                    position.withinX(
+                            config.edgeXMin,
+                            config.xTolerance
+                    ),
+                    insideXMin
+            );
 
-        insideXMax = checkZone(
-                position.withinX(EDGE_X_MAX, TOLERANCE),
-                insideXMax
-        );
-
+            insideXMax = checkZone(
+                    position.withinX(
+                            config.edgeXMax,
+                            config.xTolerance
+                    ),
+                    insideXMax
+            );
+        }
         // Z Axis
-        insideZMin = checkZone(
-                position.withinZ(EDGE_Z_MIN, TOLERANCE),
-                insideZMin
-        );
 
-        insideZMax = checkZone(
-                position.withinZ(EDGE_Z_MAX, TOLERANCE),
-                insideZMax
-        );
+        if (config.zEnabled) {
+            insideZMin = checkZone(
+                    position.withinZ(
+                            config.edgeZMin,
+                            config.zTolerance
+                    ),
+                    insideZMin
+            );
+
+            insideZMax = checkZone(
+                    position.withinZ(
+                            config.edgeZMax,
+                            config.zTolerance
+                    ),
+                    insideZMax
+            );
+        }
     }
 
 
