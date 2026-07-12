@@ -7,17 +7,19 @@ import net.roks.farmalert.service.TitleService;
 public final class EdgeDetector {
 
     /*
-     * Temporary values for Milestone 5.
-     * These will move to the config later.
+     * Temporary hardcoded coordinates.
+     * These will come from the config later.
      */
-    private static final double TEST_X = 0.0;
+    private static final double LEFT_X = -10.5;
+    private static final double RIGHT_X = 10.5;
+
     private static final double TOLERANCE = 0.15;
 
     /*
-     * Prevents repeated triggering while standing
-     * inside the trigger zone.
+     * Trigger state
      */
-    private static boolean insideTriggerZone = false;
+    private static boolean insideLeftZone = false;
+    private static boolean insideRightZone = false;
 
     private EdgeDetector() {
     }
@@ -26,19 +28,47 @@ public final class EdgeDetector {
 
         Position position = PositionService.getCurrentPosition();
 
-        boolean inside = position.withinX(TEST_X, TOLERANCE);
+        checkLeft(position);
+        checkRight(position);
+
+    }
+
+    private static void checkLeft(Position position) {
+
+        boolean inside = position.withinX(LEFT_X, TOLERANCE);
 
         if (!inside) {
-            insideTriggerZone = false;
+            insideLeftZone = false;
             return;
         }
 
-        if (insideTriggerZone) {
+        if (insideLeftZone) {
             return;
         }
 
-        insideTriggerZone = true;
+        insideLeftZone = true;
 
         TitleService.showEndOfFarm();
+
     }
+
+    private static void checkRight(Position position) {
+
+        boolean inside = position.withinX(RIGHT_X, TOLERANCE);
+
+        if (!inside) {
+            insideRightZone = false;
+            return;
+        }
+
+        if (insideRightZone) {
+            return;
+        }
+
+        insideRightZone = true;
+
+        TitleService.showEndOfFarm();
+
+    }
+
 }
