@@ -3,7 +3,6 @@ package net.roks.farmalert.screen;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.components.toasts.SystemToast;
 import net.minecraft.network.chat.Component;
 
 public class FarmAlertScreen extends Screen {
@@ -15,24 +14,31 @@ public class FarmAlertScreen extends Screen {
     @Override
     protected void init() {
 
-        Button button = Button.builder(
-                        Component.literal("Hello World"),
-                        btn -> {
+        int centerX = this.width / 2;
+        int bottom = this.height - 35;
 
-                            this.minecraft.getToastManager().addToast(
-                                    SystemToast.multiline(
-                                            this.minecraft,
-                                            SystemToast.SystemToastId.NARRATOR_TOGGLE,
-                                            Component.literal("Hello World"),
-                                            Component.literal("FarmAlert Screen Works")
-                                    )
-                            );
+        // Save
+        this.addRenderableWidget(
+                Button.builder(
+                                Component.literal("Save"),
+                                button -> {
 
-                        })
-                .bounds(40, 40, 140, 20)
-                .build();
+                                    // TODO Save Config
 
-        this.addRenderableWidget(button);
+                                })
+                        .bounds(centerX - 105, bottom, 100, 20)
+                        .build()
+        );
+
+        // Cancel
+        this.addRenderableWidget(
+                Button.builder(
+                                Component.literal("Cancel"),
+                                button -> this.onClose()
+                        )
+                        .bounds(centerX + 5, bottom, 100, 20)
+                        .build()
+        );
 
     }
 
@@ -50,11 +56,51 @@ public class FarmAlertScreen extends Screen {
                 delta
         );
 
+        int centerX = this.width / 2;
+
+        String title = "FarmAlert";
+
         graphics.text(
                 this.font,
-                "Special Button",
+                title,
+                centerX - this.font.width(title) / 2,
+                15,
+                0xFFFFFFFF,
+                true
+        );
+
+        graphics.text(
+                this.font,
+                "Edge Detection",
                 40,
-                40 - this.font.lineHeight - 10,
+                50,
+                0xFFFFFFFF,
+                true
+        );
+
+        graphics.text(
+                this.font,
+                "Teleport",
+                40,
+                130,
+                0xFFFFFFFF,
+                true
+        );
+
+        graphics.text(
+                this.font,
+                "Title",
+                40,
+                220,
+                0xFFFFFFFF,
+                true
+        );
+
+        graphics.text(
+                this.font,
+                "Debug",
+                40,
+                290,
                 0xFFFFFFFF,
                 true
         );
