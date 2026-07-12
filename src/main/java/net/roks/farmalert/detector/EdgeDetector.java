@@ -8,7 +8,7 @@ public final class EdgeDetector {
 
     /*
      * Temporary hardcoded coordinates.
-     * These will come from the config later.
+     * These will move to the config later.
      */
     private static final double LEFT_X = -10.5;
     private static final double RIGHT_X = 10.5;
@@ -28,47 +28,29 @@ public final class EdgeDetector {
 
         Position position = PositionService.getCurrentPosition();
 
-        checkLeft(position);
-        checkRight(position);
+        insideLeftZone = checkZone(
+                position.withinX(LEFT_X, TOLERANCE),
+                insideLeftZone
+        );
 
+        insideRightZone = checkZone(
+                position.withinX(RIGHT_X, TOLERANCE),
+                insideRightZone
+        );
     }
 
-    private static void checkLeft(Position position) {
-
-        boolean inside = position.withinX(LEFT_X, TOLERANCE);
+    private static boolean checkZone(boolean inside, boolean alreadyInside) {
 
         if (!inside) {
-            insideLeftZone = false;
-            return;
+            return false;
         }
 
-        if (insideLeftZone) {
-            return;
+        if (alreadyInside) {
+            return true;
         }
-
-        insideLeftZone = true;
 
         TitleService.showEndOfFarm();
 
+        return true;
     }
-
-    private static void checkRight(Position position) {
-
-        boolean inside = position.withinX(RIGHT_X, TOLERANCE);
-
-        if (!inside) {
-            insideRightZone = false;
-            return;
-        }
-
-        if (insideRightZone) {
-            return;
-        }
-
-        insideRightZone = true;
-
-        TitleService.showEndOfFarm();
-
-    }
-
 }
