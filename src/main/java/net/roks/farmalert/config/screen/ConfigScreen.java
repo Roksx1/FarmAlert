@@ -246,7 +246,7 @@ public final class ConfigScreen {
                                 Component.translatable("setting.command_delay"),
                                 teleport.commandDelay
                         )
-                        .setDefaultValue(0.0)
+                        .setDefaultValue(2.0)
                         .setMin(0.0)
                         .setSaveConsumer(value -> teleport.commandDelay = value)
                         .build()

@@ -4,8 +4,8 @@ import net.roks.farmalert.constant.Constants;
 
 public class EdgeConfig {
 
-    public boolean xEnabled = true;
-    public boolean zEnabled = true;
+    public boolean xEnabled = false;
+    public boolean zEnabled = false;
 
     public double edgeXMin = -10.5;
     public double edgeXMax = 10.5;

@@ -4,7 +4,7 @@ import net.roks.farmalert.constant.Constants;
 
 public class TeleportConfig {
 
-    public boolean enabled = true;
+    public boolean enabled = false;
 
     public double targetX = 0.0;
     public double targetY = 0.0;
@@ -14,7 +14,7 @@ public class TeleportConfig {
     public double yTolerance = Constants.DEFAULT_TELEPORT_TOLERANCE;
     public double zTolerance = Constants.DEFAULT_TELEPORT_TOLERANCE;
 
-    public double commandDelay = 0.0;
-    public String command = "garden";
+    public double commandDelay = 2.0;
+    public String command = "";
 
 }

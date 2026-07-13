@@ -1,4 +1,4 @@
-# End Of Farm Alert
+# FarmAlert
 
 A lightweight Fabric mod that displays configurable on-screen title alerts when you reach the edge of your farm or a custom teleport point.
 
