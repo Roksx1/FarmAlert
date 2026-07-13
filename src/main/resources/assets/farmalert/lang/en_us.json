@@ -1,4 +1,35 @@
 {
   "key.farmalert.open_config": "Open FarmAlert",
-  "key.category.farmalert.keybinds": "FarmAlert"
+  "key.category.farmalert.keybinds": "FarmAlert",
+
+  "farmalert.title": "FarmAlert",
+
+  "category.edge": "Edge Detection",
+  "category.teleport": "Teleport",
+
+  "subcategory.x": "X Axis",
+  "subcategory.z": "Z Axis",
+  "subcategory.teleport": "Detection",
+
+  "setting.enable": "Enable",
+
+  "setting.min_x": "Min X",
+  "setting.max_x": "Max X",
+
+  "setting.min_z": "Min Z",
+  "setting.max_z": "Max Z",
+
+  "setting.x_tolerance": "X Tolerance",
+  "setting.y_tolerance": "Y Tolerance",
+  "setting.z_tolerance": "Z Tolerance",
+
+  "setting.target_x": "Target X",
+  "setting.target_y": "Target Y",
+  "setting.target_z": "Target Z",
+
+  "setting.command": "Command",
+
+  "button.use_current": "Use Current Position",
+  "validation.non_negative": "Value must be 0 or greater.",
+  "validation.min_max": "Minimum value must not be greater than maximum value."
 }

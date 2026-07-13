@@ -30,37 +30,37 @@ public final class ConfigScreen {
         builder.setParentScreen(parent);
 
         builder.setTitle(
-                Component.literal("FarmAlert")
+                Component.translatable("farmalert.title")
         );
 
         ConfigCategory edgeCategory =
                 builder.getOrCreateCategory(
-                        Component.literal("Edge Detection")
+                        Component.translatable("category.edge")
                 );
         ConfigCategory teleportCategory =
                 builder.getOrCreateCategory(
-                        Component.literal("Teleport")
+                        Component.translatable("category.teleport")
                 );
 
         ConfigEntryBuilder entryBuilder =
                 builder.entryBuilder();
         var xAxis = entryBuilder.startSubCategory(
-                Component.literal("X Axis")
+                Component.translatable("subcategory.x")
         );
 
         var zAxis = entryBuilder.startSubCategory(
-                Component.literal("Z Axis")
+                Component.translatable("subcategory.z")
         );
 
         var teleportDetection = entryBuilder.startSubCategory(
-                Component.literal("Detection")
+                Component.translatable("subcategory.teleport")
         );
         EdgeConfig edge = config.edge;
 
         xAxis.add(
 
                 entryBuilder.startBooleanToggle(
-                                Component.literal("Enable"),
+                                Component.translatable("setting.enable"),
                                 edge.xEnabled
                         )
                         .setDefaultValue(true)
@@ -72,7 +72,7 @@ public final class ConfigScreen {
         xAxis.add(
 
                 entryBuilder.startDoubleField(
-                                Component.literal("Min X"),
+                                Component.translatable("setting.min_x"),
                                 edge.edgeXMin
                         )
                         .setDefaultValue(-10.5)
@@ -84,7 +84,7 @@ public final class ConfigScreen {
         xAxis.add(
 
                 entryBuilder.startDoubleField(
-                                Component.literal("Max X"),
+                                Component.translatable("setting.max_x"),
                                 edge.edgeXMax
                         )
                         .setDefaultValue(10.5)
@@ -120,7 +120,7 @@ public final class ConfigScreen {
         zAxis.add(
 
                 entryBuilder.startDoubleField(
-                                Component.literal("Min Z"),
+                                Component.translatable("setting.min_z"),
                                 edge.edgeZMin
                         )
                         .setDefaultValue(-10.5)
@@ -132,7 +132,7 @@ public final class ConfigScreen {
         zAxis.add(
 
                 entryBuilder.startDoubleField(
-                                Component.literal("Max Z"),
+                                Component.translatable("setting.max_z"),
                                 edge.edgeZMax
                         )
                         .setDefaultValue(10.5)
@@ -167,7 +167,7 @@ public final class ConfigScreen {
         teleportDetection.add(
 
                 entryBuilder.startDoubleField(
-                                Component.literal("Target X"),
+                                Component.translatable("setting.target_x"),
                                 teleport.targetX
                         )
                         .setDefaultValue(0.0)
@@ -178,7 +178,7 @@ public final class ConfigScreen {
         teleportDetection.add(
 
                 entryBuilder.startDoubleField(
-                                Component.literal("Target Y"),
+                                Component.translatable("setting.target_y"),
                                 teleport.targetY
                         )
                         .setDefaultValue(0.0)
@@ -189,7 +189,7 @@ public final class ConfigScreen {
         teleportDetection.add(
 
                 entryBuilder.startDoubleField(
-                                Component.literal("Target Z"),
+                                Component.translatable("setting.target_z"),
                                 teleport.targetZ
                         )
                         .setDefaultValue(0.0)
@@ -200,7 +200,7 @@ public final class ConfigScreen {
         teleportDetection.add(
 
                 entryBuilder.startDoubleField(
-                                Component.literal("X Tolerance"),
+                                Component.translatable("setting.x_tolerance"),
                                 teleport.xTolerance
                         )
                         .setDefaultValue(Constants.DEFAULT_TELEPORT_TOLERANCE)
@@ -211,7 +211,7 @@ public final class ConfigScreen {
         teleportDetection.add(
 
                 entryBuilder.startDoubleField(
-                                Component.literal("Y Tolerance"),
+                                Component.translatable("setting.y_tolerance"),
                                 teleport.yTolerance
                         )
                         .setDefaultValue(Constants.DEFAULT_TELEPORT_TOLERANCE)
@@ -222,7 +222,7 @@ public final class ConfigScreen {
         teleportDetection.add(
 
                 entryBuilder.startDoubleField(
-                                Component.literal("Z Tolerance"),
+                                Component.translatable("setting.z_tolerance"),
                                 teleport.zTolerance
                         )
                         .setDefaultValue(Constants.DEFAULT_TELEPORT_TOLERANCE)
@@ -233,7 +233,7 @@ public final class ConfigScreen {
         teleportDetection.add(
 
                 entryBuilder.startStrField(
-                                Component.literal("Command"),
+                                Component.translatable("setting.command"),
                                 teleport.command
                         )
                         .setDefaultValue("")
