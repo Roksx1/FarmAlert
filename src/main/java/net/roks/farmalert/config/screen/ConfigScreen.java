@@ -1,17 +1,15 @@
 package net.roks.farmalert.config.screen;
 
-import net.roks.farmalert.service.ConfigService;
-import net.roks.farmalert.constant.Constants;
-import net.roks.farmalert.config.FarmAlertConfig;
-import net.roks.farmalert.config.EdgeConfig;
-import net.roks.farmalert.config.TeleportConfig;
-
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
-
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import net.roks.farmalert.config.EdgeConfig;
+import net.roks.farmalert.config.FarmAlertConfig;
+import net.roks.farmalert.config.TeleportConfig;
+import net.roks.farmalert.constant.Constants;
+import net.roks.farmalert.service.ConfigService;
 
 public final class ConfigScreen {
 
@@ -63,7 +61,7 @@ public final class ConfigScreen {
                                 Component.translatable("setting.enable"),
                                 edge.xEnabled
                         )
-                        .setDefaultValue(true)
+                        .setDefaultValue(false)
                         .setSaveConsumer(value -> edge.xEnabled = value)
                         .build()
 
@@ -112,7 +110,7 @@ public final class ConfigScreen {
                                 Component.translatable("setting.enable"),
                                 edge.zEnabled
                         )
-                        .setDefaultValue(true)
+                        .setDefaultValue(false)
                         .setSaveConsumer(value -> edge.zEnabled = value)
                         .build()
 
@@ -161,7 +159,7 @@ public final class ConfigScreen {
                                 Component.translatable("setting.enable"),
                                 teleport.enabled
                         )
-                        .setDefaultValue(true)
+                        .setDefaultValue(false)
                         .setSaveConsumer(value -> teleport.enabled = value)
                         .build()
 
@@ -238,6 +236,19 @@ public final class ConfigScreen {
                         .setDefaultValue(Constants.DEFAULT_TELEPORT_TOLERANCE)
                         .setMin(0.0)
                         .setSaveConsumer(value -> teleport.zTolerance = value)
+                        .build()
+
+        );
+
+        teleportDetection.add(
+
+                entryBuilder.startDoubleField(
+                                Component.translatable("setting.command_delay"),
+                                teleport.commandDelay
+                        )
+                        .setDefaultValue(0.0)
+                        .setMin(0.0)
+                        .setSaveConsumer(value -> teleport.commandDelay = value)
                         .build()
 
         );

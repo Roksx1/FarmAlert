@@ -11,9 +11,9 @@ public final class Constants {
 
 
     // Default Title Timings
-    public static final int DEFAULT_TITLE_FADE_IN = 5;
+    public static final int DEFAULT_TITLE_FADE_IN = 0;
     public static final int DEFAULT_TITLE_STAY = 40;
-    public static final int DEFAULT_TITLE_FADE_OUT = 10;
+    public static final int DEFAULT_TITLE_FADE_OUT = 0;
 
     // Default Detection
     public static final double DEFAULT_EDGE_TOLERANCE = 0.15;

@@ -8,9 +8,6 @@ import net.roks.farmalert.service.PositionService;
 import net.roks.farmalert.detector.EdgeDetector;
 import net.roks.farmalert.detector.TeleportDetector;
 import net.roks.farmalert.keybind.KeyBindings;
-import net.roks.farmalert.screen.FarmAlertScreen;
-
-import net.roks.farmalert.service.TitleService;
 
 public class FarmAlertClientMod implements ClientModInitializer {
 

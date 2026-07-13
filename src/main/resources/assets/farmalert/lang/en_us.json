@@ -27,9 +27,9 @@
   "setting.target_y": "Target Y",
   "setting.target_z": "Target Z",
 
+  "setting.command_delay": "Command Delay (seconds)",
   "setting.command": "Command",
 
-  "button.use_current": "Use Current Position",
   "validation.non_negative": "Value must be 0 or greater.",
   "validation.min_max": "Minimum value must not be greater than maximum value."
 }
