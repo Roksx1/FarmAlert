@@ -7,7 +7,10 @@
   "authors": [
     "Roks"
   ],
-  "license": "All Rights Reserved",
+  "contributors": [
+    "LazeXD"
+  ],
+  "license": "MIT",
   "icon": "assets/farmalert/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -16,15 +19,27 @@
     ],
     "client": [
       "net.roks.farmalert.FarmAlertClientMod"
+    ],
+    "modmenu": [
+      "net.roks.farmalert.config.ModMenuIntegration"
     ]
   },
-  "mixins": [
-    "farmalert.mixins.json"
-  ],
   "depends": {
     "fabricloader": ">=0.19.3",
-    "minecraft": "~26.1.2",
+    "minecraft": ">=26.2",
     "java": ">=25",
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "cloth-config": ">=26.2.155"
+  },
+  "suggests": {
+    "modmenu": ">=20.0.0"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/ajruVqvVhx",
+        "modmenu.source": "https://github.com/Roksx1/FarmAlert/"
+      }
+    }
   }
 }
