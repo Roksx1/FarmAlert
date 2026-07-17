@@ -26,7 +26,7 @@ public final class EdgeDetector {
     public static void check() {
 
         Position position = PositionService.getCurrentPosition();
-        EdgeConfig config = ConfigService.getConfig().edge;
+        EdgeConfig config = ConfigService.getConfig().getActiveProfile().edge;
 
         // X Axis edge check
         if (config.xEnabled) {
