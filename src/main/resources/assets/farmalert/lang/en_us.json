@@ -30,6 +30,15 @@
   "setting.command_delay": "Command Delay (seconds)",
   "setting.command": "Command",
 
+  "category.general": "General Settings",
+  "setting.active_profile": "Active Profile",
+  "setting.create_profile": "Create Profile (Type Name)",
+  "setting.delete_profile": "Delete Profile (Select Name)",
+  "setting.debug_mode": "Debug Mode",
+  "setting.play_sound": "Play Sound",
+  "setting.title_duration": "Title Duration (Ticks)",
+  "setting.title_scale": "Title Scale",
+
   "validation.non_negative": "Value must be 0 or greater.",
   "validation.min_max": "Minimum value must not be greater than maximum value.",
 
