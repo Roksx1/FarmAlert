@@ -5,6 +5,9 @@ import net.minecraft.network.chat.Component;
 
 import net.roks.farmalert.constant.Constants;
 
+/**
+ * Service to show custom overlay titles/alerts on the player's screen.
+ */
 public final class TitleService {
 
     private TitleService() {
@@ -14,7 +17,10 @@ public final class TitleService {
         return Minecraft.getInstance();
     }
 
-    public static void show(String title,
+    /**
+     * Shows a title message with specified fade and stay durations.
+     */
+    public static void show(Component title,
                             int fadeIn,
                             int stay,
                             int fadeOut) {
@@ -25,11 +31,14 @@ public final class TitleService {
             return;
         }
 
-        minecraft.gui.setTimes(fadeIn, stay, fadeOut);
-        minecraft.gui.setTitle(Component.literal(title));
+        minecraft.gui.hud.setTimes(fadeIn, stay, fadeOut);
+        minecraft.gui.hud.setTitle(title);
     }
 
-    public static void show(String title) {
+    /**
+     * Shows a title message with default timings.
+     */
+    public static void show(Component title) {
 
         show(
                 title,
@@ -40,15 +49,21 @@ public final class TitleService {
 
     }
 
+    /**
+     * Displays the "End of Farm" alert.
+     */
     public static void showEndOfFarm() {
 
-        show(Constants.TITLE_END_OF_FARM);
+        show(Component.translatable(Constants.KEY_TITLE_END_OF_FARM));
 
     }
 
+    /**
+     * Displays the "Teleport Now" alert.
+     */
     public static void showTeleportNow() {
 
-        show(Constants.TITLE_TELEPORT_NOW);
+        show(Component.translatable(Constants.KEY_TITLE_TELEPORT_NOW));
 
     }
 }

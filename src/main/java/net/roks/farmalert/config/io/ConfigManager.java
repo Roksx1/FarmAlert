@@ -13,13 +13,18 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/**
+ * Handles JSON serialization/deserialization of config files.
+ */
 public final class ConfigManager {
 
+    // Gson serializer instance
     private static final Gson GSON =
             new GsonBuilder()
                     .setPrettyPrinting()
                     .create();
 
+    // Configuration file path
     private static final Path CONFIG_FILE =
             Minecraft.getInstance()
                     .gameDirectory
@@ -30,6 +35,9 @@ public final class ConfigManager {
     private ConfigManager() {
     }
 
+    /**
+     * Loads the config file or returns a new instance if it doesn't exist.
+     */
     public static FarmAlertConfig load() {
 
         if (!Files.exists(CONFIG_FILE)) {
@@ -55,6 +63,9 @@ public final class ConfigManager {
 
     }
 
+    /**
+     * Saves the config instance to the JSON file.
+     */
     public static void save(FarmAlertConfig config) {
 
         try {
